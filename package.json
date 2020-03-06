@@ -1,0 +1,23 @@
+{
+  "name": "mbr.components",
+  "version": "0.0.1",
+  "description": "MBR Components Quasar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evandroassisdev/mbr.components.git"
+  },
+  "author": "Evandro Assis",
+  "license": "ISC",
+  "dependencies": {
+    "vanilla-masker": "^1.2.0",
+    "js-base64": "^2.5.1"
+  },
+  "bugs": {
+    "url": "https://github.com/evandroassisdev/mbr.components/issues"
+  },
+  "homepage": "https://github.com/evandroassisdev/mbr.components#readme"
+}
