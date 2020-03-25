@@ -28,3 +28,71 @@ export const Post = ({ dispatch }, objeto) => {
       return erro.response.data
     })
 }
+
+export const Get = ({ dispatch }, endereco) => {
+  Header()
+  Loading.show()
+  return axios.get(endereco)
+    .then(resp => {
+      Loading.hide()
+      return resp.data
+    })
+    .catch(erro => {
+      Loading.hide()
+      if (erro.response.status === 401) {
+        window.location.href = '/login'
+      }
+      return erro.response.data
+    })
+}
+
+export const GetId = ({ dispatch }, object) => {
+  Header()
+  Loading.show()
+  return axios.get(`${object.endereco}/${object.id}`)
+    .then(resp => {
+      Loading.hide()
+      return resp.data
+    })
+    .catch(erro => {
+      Loading.hide()
+      if (erro.response.status === 401) {
+        window.location.href = '/login'
+      }
+      return erro.response.data
+    })
+}
+
+export const Put = ({ dispatch }, object) => {
+  Header()
+  Loading.show()
+  return axios.put(object.endereco, object.data)
+    .then(resp => {
+      Loading.hide()
+      return resp.data
+    })
+    .catch(erro => {
+      Loading.hide()
+      if (erro.response.status === 401) {
+        window.location.href = '/login'
+      }
+      return erro.response.data
+    })
+}
+
+export const Delete = ({ dispatch }, object) => {
+  Header()
+  Loading.show()
+  return axios.delete(object.endereco, { data: object.data })
+    .then(resp => {
+      Loading.hide()
+      return resp.data
+    })
+    .catch(erro => {
+      Loading.hide()
+      if (erro.response.status === 401) {
+        window.location.href = '/login'
+      }
+      return erro.response.data
+    })
+}
