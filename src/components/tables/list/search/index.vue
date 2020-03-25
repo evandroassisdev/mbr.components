@@ -36,4 +36,5 @@ export default {
   align-items: center;
   .input
     width 100%
+    padding 15px
 </style>

@@ -137,7 +137,8 @@ export default {
     Excluir () {
       this.$q.loading.show()
       this.table.reflesh = false
-      this.$store.dispatch('Delete', { endereco: this.table.controller, data: this.table.selecionados })
+      // console.log(this.table.selecionados[0].id)
+      this.$store.dispatch('Delete', { endereco: `${this.table.controller}/${this.table.selecionados[0].id}`, data: this.table.selecionados })
         .then(resp => {
           this.table.selecionado = {}
           this.table.selecionados = []
