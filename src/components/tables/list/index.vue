@@ -3,7 +3,6 @@
     <c-search v-model="table"></c-search>
     <c-dados v-model="table" :Lista='List'/>
     <c-footer v-model="table" :Lista='List'></c-footer>
-    {{table}}
   </div>
 </template>
 <script>

@@ -143,7 +143,10 @@ export default {
           this.table.selecionado = {}
           this.table.selecionados = []
           this.$q.loading.hide()
-          //this.$message.MessageForm(resp.message, resp.success)
+          this.$q.notify({
+            message: resp.message,
+            color: 'negative'
+          })
           if (resp.success) {
             this.table.reflesh = true
           }
