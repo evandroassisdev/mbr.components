@@ -24,12 +24,15 @@ export default class Table {
     novo = true,
     editar = true,
     btnEdit = null,
+    btnImages = null,
+    btnImage = false,
     excluir = true,
     excluirTodos = true,
     clickpersonalizado = null,
     fields = [],
     buttons = [],
     acaoClick = false,
+    dadosImagens = false,
     acaoRemover = false
   ) {
     this.controller = controller
@@ -40,11 +43,13 @@ export default class Table {
     this.selecionados = selecionados
     this.novo = novo
     this.editar = editar
+    this.btnImage = btnImage
     this.excluir = excluir
     this.excluirTodos = excluirTodos
     this.clickpersonalizado = clickpersonalizado
     this.fields = fields
     this.buttons = []
     this.acaoClick = acaoClick
+    this.dadosImagens = dadosImagens
   }
 }

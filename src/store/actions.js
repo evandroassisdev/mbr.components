@@ -14,6 +14,20 @@ const Header = () => {
     common: common
   }
 }
+export const Images = ({ dispatch }, objeto) => {
+  const config = { headers: { 'Content-Type': 'multipart/form-data' } }
+  Header()
+  Loading.show()
+  return axios.post(objeto.endereco, objeto.data, config)
+    .then(resp => {
+      Loading.hide()
+      return resp.data
+    })
+    .catch(erro => {
+      Loading.hide()
+      return erro.response.data
+    })
+}
 
 export const Post = ({ dispatch }, objeto) => {
   Header()

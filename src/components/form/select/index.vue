@@ -150,6 +150,10 @@ export default {
       type: Boolean,
       default: false
     },
+    confirmedStatus: {
+      type: Boolean,
+      default: false
+    },
     controller: {
       default: null
     }
@@ -159,11 +163,13 @@ export default {
     list: [],
     novoregistro: null,
     completa: [],
-    optionsStatus: []
+    optionsStatus: [],
+    confirmStatus: []
   }),
   mounted () {
     this.model = this.value
     this.StatusOption()
+    this.ConfirmOption()
     this.Carrega()
   },
   methods: {
@@ -171,6 +177,12 @@ export default {
       this.optionsStatus = [
         { value: true, label: 'Ativo' },
         { value: false, label: 'Desativado' }
+      ]
+    },
+    ConfirmOption () {
+      this.confirmStatus = [
+        { value: true, label: 'Sim' },
+        { value: false, label: 'Não' }
       ]
     },
     search (val, update) {},
@@ -183,6 +195,10 @@ export default {
       } else if (this.status) {
         this.nosearch = false
         this.list = this.optionsStatus
+        this.completa = this.list
+      } else if (this.confirmedStatus) {
+        this.nosearch = false
+        this.list = this.confirmStatus
         this.completa = this.list
       }
     },

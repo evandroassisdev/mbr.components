@@ -9,6 +9,11 @@
           </div>
         </q-item-section>
         <q-item-section side class="buttons">
+          <q-btn icon='far fa-images' flat :style='colorLine(index, dado)' round color='green' @click='imagens(dado)' v-if="validaBtnImages(dado) && table.btnImage">
+            <q-tooltip content-style="font-size: 12px">
+              Imagens
+            </q-tooltip>
+          </q-btn>
           <q-btn icon='far fa-edit' flat :style='colorLine(index, dado)' round color='green' @click='editar(dado)' v-if="validaBtnEdit(dado)">
             <q-tooltip content-style="font-size: 12px">
               Editar
@@ -45,10 +50,14 @@ export default {
   },
   props: {
     value: {
-      required: true
+      required: true,
     },
     Lista: {
       required: true
+    },
+    images: {
+      type: Boolean,
+      default: false
     }
   },
   data: () => ({
@@ -60,7 +69,6 @@ export default {
   },
   computed: {
     MenuActive () {
-      console.log('ok')
       // var menus = this.$store.state.assistme.menus
       // var menu = menus.find(x => x.nomeRouter === this.$route.name)
       // var sub = null
@@ -93,6 +101,12 @@ export default {
       if (total === 0) return { background: '#fff' }
       return { background: '#eee' }
     },
+    validaBtnImages (dado) {
+      if (this.table.btnImages) {
+        return this.table.btnImages(dado)
+      }
+      return true
+    },
     validaBtnEdit (dado) {
       if (this.table.btnEdit) {
         return this.table.btnEdit(dado)
@@ -113,6 +127,11 @@ export default {
         return btn.validate(dado)
       }
       return true
+    },
+    imagens (value) {
+      this.table.selecionado = value
+      this.table.acaoClick = true
+      this.table.dadosImagens = true
     },
     editar (value) {
       this.table.selecionado = value

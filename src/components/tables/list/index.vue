@@ -1,7 +1,7 @@
 <template>
   <div id="List">
     <c-search v-model="table"></c-search>
-    <c-dados v-model="table" :Lista='List'/>
+    <c-dados v-model="table" :Lista='List' />
     <c-footer v-model="table" :Lista='List'></c-footer>
   </div>
 </template>
@@ -78,6 +78,7 @@ export default {
         this.table.selecionados = []
         this.table.reflesh = false
         this.table.acaoClick = false
+        this.table.dadosImagens = false
       }
     },
     table () {
